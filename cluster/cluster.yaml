@@ -1,0 +1,18 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: sandbox
+  region: us-west-2
+
+vpc:
+  cidr: 10.99.0.0/16
+
+nodeGroups:
+  - name: general-purpose-1
+    instanceType: m5.large
+    minSize: 4
+    maxSize: 4
+    iam:
+      withAddonPolicies:
+        autoScaler: true
